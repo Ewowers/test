@@ -5,6 +5,10 @@ router.get("/", async (req, res) => {
   let product = await Product.find({});
   res.status(200).json(product);
 });
+router.get("/id=:id", async (req, res) => {
+  let product = await Product.findById(req.params.id);
+  res.status(200).json(product);
+});
 router.get("/type=:type", async (req, res) => {
   let type = req.params.type;
   type = type.split(",");
